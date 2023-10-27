@@ -26,17 +26,38 @@ const KEYS = [
   "y",
   "z",
 ]
+
+type KeyboardProps = {
+  disabled?:boolean,
+  activeWord :string[],
+ inactiveWord :string[] ,
+ addGuess : (item :string) =>void
+}
+
 import styles from './Keybord.module.css'
-const Keyboard = () => {
+const Keyboard = ({
+  activeWord ,inactiveWord,addGuess,disabled= false} : KeyboardProps) => {
   return (
     <div style={{display:'grid',gridTemplateColumns:'repeat(auto-fit,minmax(75px,1fr)',gap:'.5rem'}}>
       
-{KEYS.map((item,index)=>(
-  <div key={index}>
-    <button className={`${styles.btn}`}>{item}</button> 
-  </div>
+{KEYS.map((item,index)=>{
+   const isActive = activeWord.includes(item)
+   const isInActive = inactiveWord.includes(item)
+return(
+    <button key={index}
+     onClick={()=>addGuess(item)}
+    className={`${styles.btn}
+     ${isActive ? styles.active : ''} 
+    ${isInActive ? styles.inactive : ''}` } disabled={isActive || isInActive || disabled}>{item}</button> 
+)
+}
+)
+}
+   
+  
+
  
-))}
+
       
       </div>
   )
