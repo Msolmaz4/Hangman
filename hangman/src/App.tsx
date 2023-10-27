@@ -10,7 +10,9 @@ function App() {
     //console.log(word)
      const [hang,setHang] = useState(word)
     //console.log(hang)
-
+    const [guess ,setGuess] = useState<string[]>(['g'])
+  // burada tahminin icerip icermedigine bajacagim 
+    const inCorret = guess.filter((item)=>!word.includes(item))
 
   return (
     <div style={{
@@ -22,7 +24,7 @@ function App() {
       alignItems:'center'
     }}>
     <div style={{fontSize:'2rem' ,textAlign:'center' }}>Lose Win</div>
-    <HangmanDr/>
+    <HangmanDr numberOf = {inCorret.length} />
     <HangmanWort/>
     <div style={{alignSelf:'stretch'}}>
         <Keyboard/>

@@ -79,16 +79,16 @@ const RIGTTBEIN =(
         }}
     />
 )
+type HangmanProps = {
+    numberOf:number
+} 
+const BODY_PARTS =[HEAD , BODY,RIGHT,LEFT,LEFTBEIN,RIGTTBEIN]
 
-const HangmanDr = () => {
+const HangmanDr = ({numberOf}:HangmanProps) => {
   return (
     <div style={{position:'relative'}}>
-        {HEAD}
-        {BODY}
-        {RIGHT}
-        {LEFT}
-        {RIGTTBEIN}
-        {LEFTBEIN}
+        {/* {HEAD} {BODY} {RIGHT} {LEFT}{RIGTTBEIN}{LEFTBEIN} */}
+        {BODY_PARTS.slice(0,numberOf)}
         <div style={{
             height:'50px',
             width:'10px',
