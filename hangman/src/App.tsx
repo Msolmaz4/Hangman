@@ -74,7 +74,7 @@ function App() {
     }}>
       <div style={{ fontSize: '2rem', textAlign: 'center' }}>
         {winner && 'gewonnen'}
-        {verloren && 'veloren widerholen'}
+        {verloren && 'verloren und widerholen'}
       </div>
       <HangmanDr numberOf={inCorret.length} />
       <HangmanWort reveal={verloren} guess={guess} hang={hang} />

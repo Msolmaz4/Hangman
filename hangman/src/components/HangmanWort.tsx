@@ -25,8 +25,7 @@ const HangmanWort = ({guess,hang,reveal=false} : HangWordGuessProps) => {
       <span
       style={{visibility:guess.includes(item) || reveal ? 'visible' :'hidden',
       color:!guess.includes(item) &&  reveal ? 'red':'black'
-    }}
-      >
+    }}>
          {item}
       </span>
 
